@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 
  * Un objeto de esta clase guarda en un array los juegos 
  *
- * @author -
+ * @author - Sara López Vicente
  */
 public class RevistaOnLineJuegos 
 {

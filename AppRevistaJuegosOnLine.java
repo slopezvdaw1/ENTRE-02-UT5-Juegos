@@ -1,7 +1,7 @@
 /**
  * Punto de entrada a la aplicación
  * 
- * @author - 
+ * @author - Sara López Vicente
  */
 public class AppRevistaJuegosOnLine 
 {
