@@ -78,8 +78,11 @@ public class Juego {
      *  obtener valoración media
      */
     public double getValoracionMedia() {
-        double media = 0;
-        
+        double suma = 0;
+        for (int i = 0; i < valoraciones.length; i++) {
+            suma += valoraciones[i] * i;
+        }
+        double media = suma / getVotos(); 
         return media;
     }
 
@@ -87,7 +90,7 @@ public class Juego {
      *  Un usuario puntúa el juego con un valor entre 1 y 10 
      */
     public void puntuar(int puntuacion) {
-         
+         valoraciones[puntuacion]++;
     }
 
     /**
