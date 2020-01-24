@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 /**
  * Punto de entrada a la aplicación
  * 
@@ -31,12 +31,9 @@ public class AppRevistaJuegosOnLine
             
             System.out.println(revista.toString());
             
-            System.out.println("**************************************\nJuegos con valoración media > 8.2\n[");
+            System.out.println("**************************************\nJuegos con valoración media > 8.2\n");
             String[] media = revista.valoracionMayorQue(8.2);
-            for (int i = 0; i < media.length; i++) {
-                System.out.printf("%s, ");
-            }
-            System.out.print("]");
+            System.out.println(Arrays.toString(media));
             System.out.println("***************************************");
             
             System.out.println("Borrando juegos del género ROL ...");

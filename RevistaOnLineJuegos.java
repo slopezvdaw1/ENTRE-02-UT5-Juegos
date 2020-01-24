@@ -49,16 +49,14 @@ public class RevistaOnLineJuegos
         if (estaCompleta()) {
             System.out.println("No se puede añadir juegos, la lista está completa.");
         }
+        else if (existeJuego(juego.getTitulo()) >= 0) {
+             System.out.println("Ese juego ya está en la lista.");
+                }
         else {
-            for (int i = 0; i < total; i++) {
-                if (existeJuego(juego.getTitulo()) >= 0) {
-                    System.out.println("Ese juego ya está en la lista.");
-                }
-                else {// corregir esto, no inserta en orden
-                    insertarEnOrden(juego);
-                }
-            }
+            insertarEnOrden(juego);                            
+                    
         }
+        
     }
     
     /**
@@ -98,9 +96,9 @@ public class RevistaOnLineJuegos
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Los mejores juegos en nuestra revista " + nombre + "(" + total + " juegos)");
+        sb.append("Los mejores juegos en nuestra revista " + nombre + "(" + total + " juegos)\n");
         for (int i = 0; i < total; i++) {
-            sb.append(juegos[i].toString() + "\n");
+            sb.append("\n" + juegos[i].toString() + "\n");
         }
         return sb.toString();
     }
