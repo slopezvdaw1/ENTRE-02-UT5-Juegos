@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-
+import java.util.Arrays;
 /**
  * La clase representa a una tienda on-line en la
  * que se publican los juegos que se van lanzando al mercado
@@ -85,7 +85,7 @@ public class RevistaOnLineJuegos
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(nombre);
+        sb.append("Los mejores juegos en nuestra revista " + nombre + "(" + total + " juegos)");
         for (int i = 0; i < total; i++) {
             sb.append(juegos[i].toString() + "\n");
         }
@@ -99,9 +99,9 @@ public class RevistaOnLineJuegos
      *  Si el juego no existe se muestra un mensaje en pantalla
      */
     public void puntuar(String titulo, int puntuacion) {
-        int pos =existeJuego(titulo);
+        int pos = existeJuego(titulo);
         if (pos == -1) {
-            System.out.println("El juego no existe");
+            System.out.println("No existe el juego " + titulo);
         }
         else {
             juegos[pos].puntuar(puntuacion);
@@ -116,9 +116,16 @@ public class RevistaOnLineJuegos
      */
     public String[] valoracionMayorQue(double valoracion) {
         int cont = 0;
-        
-        String[] mayores = new String[];
-        return null;
+        String[] aux = new String[total];
+        for (int i = 0; i < total; i++) {
+            if (juegos[i].getValoracionMedia() > valoracion) {
+                aux[cont] = juegos[i].getTitulo();
+                cont++;
+            }
+        }
+        String[] copia = Arrays.copyOf(aux, cont);
+        Arrays.sort(copia);
+        return copia;
     }
 
     /**
@@ -126,8 +133,28 @@ public class RevistaOnLineJuegos
      * el nº de juegos borradas
      */
     public int borrarDeGenero(Genero genero) {
+        int cuantos = 0;
+        for (int i = total - 1; i >= 0; i--)
+        {
+            if (juegos[i].getGenero() == genero)
+            {
+                borrar(juegos[i], i);
+                cuantos++;
+            }
+        }
 
-        return 0;
+        return cuantos;
+    }
+
+    /**
+     * 
+     */
+    private void borrar(Juego juego, int p) {
+        for (int i = p + 1; i < total; i++)
+        {
+            juegos[i - 1] = juegos[i];
+        }
+        total--;
     }
 
     /**
