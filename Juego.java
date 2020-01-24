@@ -90,7 +90,7 @@ public class Juego {
      *  Un usuario puntúa el juego con un valor entre 1 y 10 
      */
     public void puntuar(int puntuacion) {
-         valoraciones[puntuacion]++;
+         valoraciones[puntuacion - 1]++;
     }
 
     /**
