@@ -55,11 +55,24 @@ public class RevistaOnLineJuegos
                     System.out.println("Ese juego ya está en la lista.");
                 }
                 else {// corregir esto, no inserta en orden
-                    juegos[total] = juego;
-                    total++;
+                    insertarEnOrden(juego);
                 }
             }
         }
+    }
+    
+    /**
+     * 
+     */
+    private void insertarEnOrden(Juego juego) {
+        int i = total - 1;
+        while (i >= 0 && juegos[i].getTitulo().compareToIgnoreCase(juego.getTitulo()) > 0)
+        {
+            juegos[i + 1] = juegos[i];
+            i-- ;
+        }
+        juegos[i + 1] = juego; 
+        total++;
     }
 
     /**

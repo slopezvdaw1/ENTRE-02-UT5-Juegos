@@ -23,7 +23,7 @@ public class AppRevistaJuegosOnLine
             System.out.println(revista.toString());
             
             System.out.println("***************************************\nPuntuando ...");
-            
+            System.out.println();
             revista.puntuar("Planet Zoo", 8);
             revista.puntuar("Steep", 7);
             revista.puntuar("Catastronauts", 9);
@@ -31,7 +31,7 @@ public class AppRevistaJuegosOnLine
             
             System.out.println(revista.toString());
             
-            System.out.println("*******************\nJuegos con valoración media > 8.2\n[");
+            System.out.println("**************************************\nJuegos con valoración media > 8.2\n[");
             String[] media = revista.valoracionMayorQue(8.2);
             for (int i = 0; i < media.length; i++) {
                 System.out.printf("%s, ");
@@ -41,6 +41,7 @@ public class AppRevistaJuegosOnLine
             
             System.out.println("Borrando juegos del género ROL ...");
             System.out.println("Borrados " + revista.borrarDeGenero(Genero.ROL) + " juegos");
+            System.out.println("***************************************");
             System.out.println(revista.toString());
         }
         
