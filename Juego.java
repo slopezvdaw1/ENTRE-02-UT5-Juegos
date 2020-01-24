@@ -80,7 +80,7 @@ public class Juego {
     public double getValoracionMedia() {
         double suma = 0;
         for (int i = 0; i < valoraciones.length; i++) {
-            suma += valoraciones[i] * i;
+            suma += valoraciones[i] * (i + 1);
         }
         double media = suma / getVotos(); 
         return media;
